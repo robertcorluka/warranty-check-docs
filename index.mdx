@@ -1,0 +1,192 @@
+---
+title: Demo API Portal
+---
+
+import { LandingLayout } from "@redocly/developer-portal/ui";
+
+import {
+  Button,
+  FlexSection,
+  Flex,
+  Jumbotron,
+  ThinTile,
+  WideTile,
+  Emphasis,
+  H1,
+  H2,
+  H3,
+  SectionHeader,
+  Typography,
+} from "@redocly/developer-portal/ui";
+
+import { Grommet, Box, Heading, Text } from "grommet";
+
+import { hpe } from "grommet-theme-hpe";
+
+import { NavBar } from "@redocly/developer-portal/ui";
+
+import icon1 from "./images/hpe.svg";
+import launchFastIcon from "./images/launch-fast.svg";
+import icon3 from "./images/icon3.png";
+import bookManagementIcon from "./images/book-management.svg";
+import foundOrPrivate from "./images/found-or-private.svg";
+import hpeElement from "./images/HPE_ELEMENT_20210217008_16x9_1600_0_72_RGB.jpg";
+import Hero from "./_components/Hero";
+import LandingCard from "./_components/LandingCard";
+import ResponsiveGrid from "./_components/ResponsiveGrid";
+import PlatformCard from "./_components/PlatformCard";
+import hpeLogo from "./images/platforms/hpe.svg";
+import hpeDevLogo from "./images/platforms/hpe-dev.svg";
+import grommetLogo from "./images/platforms/grommet.svg";
+import hackShackLogo from "./images/platforms/hackshack.svg";
+import slackLogo from "./images/platforms/slack.svg";
+import gitHubLogo from "./images/platforms/github.svg";
+
+export default LandingLayout;
+
+<NavBar location={props.location} standalone={false} />
+<Hero />
+<Grommet theme={hpe}>
+
+  <Box align='center' pad='medium'>
+    <Heading
+    textAlign='center'
+    style={{ fontWeight: '400' }}
+    level='2'
+    margin={{ vertical: 'large'}}
+    >
+    Describe your APIs here!
+  </Heading>
+    <Box
+      width='1115px'
+      margin={{ vertical: 'large' }}
+      direction='row'
+      wrap={true}
+      justify='center'
+    >
+    <ResponsiveGrid
+        cardType='landing'
+        fill={true}
+        rows={{
+          small: ['auto', 'auto'],
+          medium: ['auto', 'auto'],
+          large: ['auto'],
+          xlarge: ['auto'],
+        }}
+        columns={{
+          small: ['auto'],
+          medium: ['auto', 'auto'],
+          large: ['auto', 'auto'],
+          xlarge: ['auto', 'auto'],
+        }}
+      >
+      <LandingCard
+        margin='medium'
+        path='#'
+        icon={icon1}
+        titleText='API #1'
+        bodyText='Developer Guide'
+      />
+      <LandingCard
+        margin='medium'
+        path='#'
+        icon={icon3}
+        titleText='API #2'
+        bodyText='Developer Guide'
+      />
+      <LandingCard
+        margin='medium'
+        path='#'
+        icon={icon3}
+        titleText='API #3'
+        bodyText='Developer Guide'
+      />
+      <LandingCard
+        margin='medium'
+        path='#'
+        icon={icon3}
+        titleText='API #4'
+        bodyText='Developer Guide'
+      />
+      </ResponsiveGrid>
+    </Box>
+  </Box>
+</Grommet>
+<Grommet theme={hpe}>
+  <Box align='center' pad='medium' background="#EFEFEF">
+    <Heading
+      textAlign='center'
+      style={{ fontWeight: '600' }}
+      level='2'
+      margin={{ vertical: 'large'}}
+    >
+      Explore HPE
+    </Heading>
+    <Box
+      width='1115px'
+      margin={{ bottom: 'large' }}
+      direction='row'
+      wrap={true}
+      justify='center'
+    >
+      <ResponsiveGrid
+        cardType='platform'
+        rows={{
+          small: ['auto', 'auto'],
+          medium: ['auto', 'auto'],
+          large: ['auto'],
+          xlarge: ['auto'],
+        }}
+        columns={{
+          small: ['auto'],
+          medium: ['auto', 'auto'],
+          large: ['auto', 'auto', 'auto'],
+          xlarge: ['auto', 'auto', 'auto'],
+        }}
+      >
+        <PlatformCard
+          icon={hpeLogo}
+          title='HPE'
+          description='HPE is a global, edge-to-cloud Platform-as-a-Servicec ompany built to transform your business'
+          backgroundColor='brand'
+          path='https://www.hpe.com/us/en/home.html'
+        />
+        <PlatformCard
+          icon={hpeDevLogo}
+          title='HPE Dev'
+          description='Find the resources you need to design and build the best possible software experiences that harness the most value from your data.'
+          backgroundColor='#17EBA0'
+          path="https://developer.hpe.com/"
+        />
+        <PlatformCard
+          icon={grommetLogo}
+          title='Grommet'
+          description='Build responsive and accessible mobile-first projects for the web with an easy to use component library'
+          backgroundColor='#7630EA'
+          path="https://v2.grommet.io/"
+        />
+        <PlatformCard
+          icon={hackShackLogo}
+          title='Hack Shack'
+          description='Collaborate and expand your skills.Try our technology Workshops-on-Demand, for a unique, hands-on learning experience.'
+          backgroundColor='#F740FF'
+          path="https://hackshack.hpedev.io/"
+        />
+        <PlatformCard
+          icon={slackLogo}
+          title='Slack'
+          description='Our Slack channel to brings people together to work as one unified team.'
+          backgroundColor='#FC6161'
+          path="https://slack.hpedev.io/"
+        />
+        <PlatformCard
+          icon={gitHubLogo}
+          title='GitHub'
+          description='GitHub is a Git repository hosting service, but it adds many of its own features. '
+          backgroundColor='#444444'
+          path="https://github.com/hpe-dev-incubator/hpe-dev-portal"
+        />
+      </ResponsiveGrid>
+    </Box>
+  </Box>
+</Grommet>
