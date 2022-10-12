@@ -1,12 +1,12 @@
 meta:
-  title: Redocly Training
-  description: The best API documentation generator ever.
-  siteUrl: https://portal-demo.redoc.ly
-  keywords: redocly developer portal, api portal starter, api reference docs
+  title: HPE Warranty Check API
+  description: HPE Warranty Check API implementation documentations.
+  siteUrl: https://developer.hpe.com
+  keywords: Redfish,RESTful API, api reference docs
 headerIcon: ./images/hpe.svg
 enableToc: true
 oasDefinitions:
-  petstore: ./openapi/petstore.yaml
+  petstore: https://api.redocly.com/registry/bundle/hpe/Warranty%20Check%20API/v1/openapi.yaml
   # add links to definitions in our API registry by using a fully qualified URL.
 stylesheets:
   - https://fonts.googleapis.com/css?family=Roboto:300,400,600,700
@@ -29,7 +29,7 @@ nav:
   - search: true
 
 footer:
-  copyrightText: © 2020 Hewlett Packard Enterprise Development LP
+  copyrightText: © 2022 Hewlett Packard Enterprise Development LP
   columns:
     - group:
       items:
