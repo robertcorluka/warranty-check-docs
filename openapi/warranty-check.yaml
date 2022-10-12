@@ -21,6 +21,23 @@ paths:
           required: true
           schema:
             type: string
+        - name: cc
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: useCache
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: true
+        - name: includeExpired
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: true
       responses:
         '200':
           description: OK
@@ -82,7 +99,24 @@ paths:
           in: path
           required: true
           schema:
-            type: string   
+            type: string
+        - name: cc
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: useCache
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: true
+        - name: includeExpired
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: true
       responses:
         '200':
           description: OK

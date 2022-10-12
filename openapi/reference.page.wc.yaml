@@ -1,0 +1,8 @@
+type: reference-docs
+definitionId: warrantycheck
+settings:
+  generateCodeSamples:
+    languages:
+      - lang: curl
+      - lang: JavaScript
+      - lang: Node.js
