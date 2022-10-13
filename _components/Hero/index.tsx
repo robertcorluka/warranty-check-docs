@@ -39,13 +39,11 @@ export default function Hero() {
                   weight="bold"
                   size="large"
                 >
-                  Product XXX API
+                  Warranty Check API
                 </Heading>
                 <Text size="xxlarge">Reference Documents</Text>
                 <Text size="large" margin={{ vertical: "50px" }}>
-                  Lorem ipsum dolor sit amet, pri putent oportere quaerendum in,
-                  ea mea justo invenire aliquando. Usu modo suavitate ea. Et sed
-                  labitur epicurei adipiscing.
+                HPE Support Center Warranty Check API (Warranty Check API) is used to retrieve the status of your warranty, including service type and level, coverage dates, deliverables, and other details associated with your warranty.
                 </Text>
                 <Box width="140px">
                   <RoutedButton
