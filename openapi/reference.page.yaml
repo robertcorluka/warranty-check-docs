@@ -1,6 +1,8 @@
 type: reference-docs
 definitionId: petstore
 settings:
+  hideInfoSection: true
+  noAutoAuth: true
   generateCodeSamples:
     languages:
       - lang: curl
