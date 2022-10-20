@@ -24,37 +24,16 @@ ENV_URL is https://api-gw.support.hpe.com/apigwext/services/oauth/token
 
 **Header Parameter**
 
-Parameter
-
-Value
-
-Description
-
-Authorization
-
-Basic [Base64 encoded clientid:secret]
-
-The authorization value the Base64 encoded string of the client id and the secret in the format clientid:secret. Example value: “Basic Y2xpZW50SWQ6c2VjcmV0”
+|Parameter|Value  |Description |
+|--|--|--|
+| Authorization |Basic [Base64 encoded clientid:secret]  | The authorization value the Base64 encoded string of the client id and the secret in the format clientid:secret. Example value: “Basic XXXXXXXXXXXXXXXXXXx” |
 
 **Body Parameter**  These values can be passed as raw body, form body or as URL parameter
 
-Parameter
-
-Value
-
-Description
-
-grant_type
-
-client_credentials
-
-required - with value client_credentials it specifies to authenticate via client credentials
-
-client_id
-
-the client id
-
-optional – if provided it must match the client id in the authorization header
+|Parameter|Value  |Description |
+|--|--|--|
+| grant_type|client_credentials| required - with value client_credentials it specifies to authenticate via client credentials|
+| client_id|the client id| optional – if provided it must match the client id in the authorization header|
 
 When testing with Postman and passing the values as body you have to specify the Header Content-Type: application/x-www-form-urlencoded.
 
