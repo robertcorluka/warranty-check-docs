@@ -1,8 +1,8 @@
 training:
   - page: developer-portal/index.md
-  - label: Examples
+  - label: Accessing Warranty Check API
     page: developer-portal/examples.md
-  - label: How to get token
+  - label: Authentication and authorization
     page: developer-portal/authentication.md
   - group: Open API specification
     expanded: false

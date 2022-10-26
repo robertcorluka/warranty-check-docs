@@ -1,20 +1,20 @@
 
 ## Authentication and Authorization
 
--   API endpoints use  _authorization headers_  and/or  _cookies_  in their requests to utilize security. When still ‘empty’, each endpoint is marked with ‘unlocked lock’ symbol on the right side  ![alt text](https://pages.github.hpe.com/TS-RnD/images/lock-empty.png "Lock symbol - empty"). After filling  _authentication/authorization_  for a certain endpoint it changes to ‘locked lock’  ![alt text](https://pages.github.hpe.com/TS-RnD/images/lock-filled.png "Lock symbol - filled").
+API endpoints use authorization headers and/or cookies in their requests to utilize security. When still ‘empty’, each endpoint is marked with an ‘unlocked lock’ symbol on the right side   ![alt text](https://pages.github.hpe.com/TS-RnD/images/lock-empty.png "Lock symbol - empty"). After filling _authentication/authorization_ for a certain endpoint it changes to a ‘locked lock’  ![alt text](https://pages.github.hpe.com/TS-RnD/images/lock-filled.png "Lock symbol - filled").
     
--   Filling  _authentication/authorization_  can be done for an individual endpoint (‘lock’ symbol) or all at once by clicking the ‘authorize’ button on top-right positioning of  [OpenApi documentation](https://pages.github.hpe.com/TS-RnD/ide-uaa-api.html)  ![alt text](https://pages.github.hpe.com/TS-RnD/images/authorize-button.png "Authorize button"). The window with all possible  _authentications/authorizations_  pops up.
+Filling authentication/authorization can be done for an individual endpoint (‘lock’ symbol) or all at once by clicking the ‘authorize’ button on the top-right of the   [OpenApi documentation](https://pages.github.hpe.com/TS-RnD/ide-uaa-api.html)  ![alt text](https://pages.github.hpe.com/TS-RnD/images/authorize-button.png "Authorize button"). The window with all possible _authentications/authorizations_ pops up..
     
 
 ## Bearer Authentication
 
-### How to get token
+#### How to get token
 
-Bellow you can find information how you can get your token from Identity Service ( OpenAPI specification or using cURL/HTTP )
+Below you can find out how to get your token from the Identity Service (OpenAPI specification or using cURL/HTTP).
 
 ## Identity Service Token OpenAPI Endpoints
 
-# Token Request
+#### Token Request
 
 **Request Method**
 
@@ -26,18 +26,19 @@ ENV_URL is https://api-gw.support.hpe.com/apigwext/services/oauth/token
 
 |Parameter|Value  |Description |
 |--|--|--|
-| Authorization |Basic [Base64 encoded clientid:secret]  | The authorization value the Base64 encoded string of the client id and the secret in the format clientid:secret. Example value: “Basic XXXXXXXXXXXXXXXXXXx” |
+| Authorization |Basic [Base64 encoded clientid:secret]  | The authorization value the Base64 encoded string of the client id and the secret in the format, clientid:secret. 
+Example value: “Basic XXXXXXXXXXXXXXXXXXx” |
 
-**Body Parameter**  These values can be passed as raw body, form body or as URL parameter
+**Body Parameter**  These values can be passed as raw body, form body or as URL parameters.
 
 |Parameter|Value  |Description |
 |--|--|--|
-| grant_type|client_credentials| required - with value client_credentials it specifies to authenticate via client credentials|
-| client_id|the client id| optional – if provided it must match the client id in the authorization header|
+| grant_type|client_credentials| Required - with the value ‘client_credentials’ it specifies to authenticate via client credentials.|
+| client_id|the client id| Optional – if provided, it must match the client id in the authorization header.|
 
-When testing with Postman and passing the values as body you have to specify the Header Content-Type: application/x-www-form-urlencoded.
+When testing with Postman and passing the values as body, you have to specify the Header Content-Type: application/x-www-form-urlencoded.
 
-## HTTP Example
+#### HTTP Example
 
 ```
 POST /services/oauth/token HTTP/1.1
@@ -48,14 +49,12 @@ grant_type=client_credentials&client_id=clientid
 
 ```
 
-The grant type  **_client_credentials_**  allows client applications to request an access token with the client specific credentials. The returned access token is used to make service calls which requires authorization without passing the clients credentials to this service.  
-The token is passed via the Authorization header and contains all relevant information about the client especially the permissions. This information is used by the service to make necessary authorization checks.  
-To ensure the access token cannot be manipulated it is signed by a certificate.  
-The token can be used until it expires. Currently it expires after 1 hour then a new token needs to be requested.
+The grant type  **client_credentials**  allows client applications to request an access token with the client specific credentials. The returned access token is used to make service calls, which requires authorization without passingthat does not pass the client’s credentials to this service.
+The token is passed via the Authorization header and contains all relevant information about the client, especially the permissions. This information is used by the service to make necessary authorization checks.
+To ensure the access token cannot be manipulated, it is signed by a certificate.
+The token can be used until it expires. Currently it expires after 1 one hour, and then a new token needs to be requested.
 
-[Applications and Services Use Case]
-
-## cURL Example
+#### cURL Example
 
 ```
 curl -X POST -s -u ${CLIENT_ID}:${CLIENT_SECRET} https://api-gw.support.hpe.com/apigwext/services/oauth/token \
@@ -64,7 +63,7 @@ curl -X POST -s -u ${CLIENT_ID}:${CLIENT_SECRET} https://api-gw.support.hpe.com/
 
 ```
 
-## Response
+#### Response
 
 ```
 {
@@ -83,13 +82,11 @@ curl -X POST -s -u ${CLIENT_ID}:${CLIENT_SECRET} https://api-gw.support.hpe.com/
 
 ```
 
-For further explanation see:  [Identity Service - JSON Web Token (JWT)]
-
 # Using Access Token
 
-The value of the access_token attribute from the previous response contains the access token which needs to be passed as  _**Bearer**_  token via the Authorization header to the service request call.
+The value of the accesstoken attribute from the previous response contains the access token which needs to be passed as  **Bearer**  token via the Authorization header to the service request call.
 
-## HTTP Example
+#### HTTP Example
 
 ```
 GET /rest/service/some/resource/ HTTP/1.1
@@ -99,7 +96,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsI....XKdemFdtuGK72X8VNqAdh-u
 
 ```
 
-## cURL Example
+#### cURL Example
 
 ```
 curl -R GET 'https:// ${SERVICE_URL} \
@@ -120,12 +117,9 @@ If the token is expired it results into a 401 Unauthorized error.
 
 # Special cases handling
 
-## G-blocked contracts handling
+#### G-blocked contracts handling
 
-**Global Trade Services (GTS)**  are utilizing the S4 Bridge Service to implement a blacklisting policy for services that depend on Entitlement information.
-
-Their strategy is to include a flag ‘G’ in the S4 Bridge response (“Contract Status” field) for specific APIs, and each downstream application has to consume this flag.
-
-If a contract has G flag in the Contract Status it means it is Active but the delivery against it is Blocked. The Entitlement Engine will suppress the G- Block contracts and
-
-will not return any Highest Support Level. 
+**Global Trade Services (GTS)**  are utilizingusing the S4 Bridge Service to implement a blacklisting deny list policy for services that depend on Eentitlement information.
+Their strategy is to include a ‘G flag’ ‘G’ in the S4 Bridge response (“Contract Status” field) for specific APIs, and each downstream application has to consume use this flag.
+If a contract has a ‘G flag’ in the Contract Status, it means it is aActive but the delivery against it is Bblocked. The In this case, the Entitlement Engine will suppress the G- Block contracts and
+willand will not return any the Highest Support Level. 

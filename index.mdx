@@ -46,72 +46,7 @@ export default LandingLayout;
 
 <NavBar location={props.location} standalone={false} />
 <Hero />
-<Grommet theme={hpe}>
 
-  <Box align='center' pad='medium'>
-    <Heading
-    textAlign='center'
-    style={{ fontWeight: '400' }}
-    level='2'
-    margin={{ vertical: 'large'}}
-    >
-    Describe your APIs here!
-  </Heading>
-    <Box
-      width='1115px'
-      margin={{ vertical: 'large' }}
-      direction='row'
-      wrap={true}
-      justify='center'
-    >
-    <ResponsiveGrid
-        cardType='landing'
-        fill={true}
-        rows={{
-          small: ['auto', 'auto'],
-          medium: ['auto', 'auto'],
-          large: ['auto'],
-          xlarge: ['auto'],
-        }}
-        columns={{
-          small: ['auto'],
-          medium: ['auto', 'auto'],
-          large: ['auto', 'auto'],
-          xlarge: ['auto', 'auto'],
-        }}
-      >
-      <LandingCard
-        margin='medium'
-        path='#'
-        icon={icon1}
-        titleText='API #1'
-        bodyText='Developer Guide'
-      />
-      <LandingCard
-        margin='medium'
-        path='#'
-        icon={icon3}
-        titleText='API #2'
-        bodyText='Developer Guide'
-      />
-      <LandingCard
-        margin='medium'
-        path='#'
-        icon={icon3}
-        titleText='API #3'
-        bodyText='Developer Guide'
-      />
-      <LandingCard
-        margin='medium'
-        path='#'
-        icon={icon3}
-        titleText='API #4'
-        bodyText='Developer Guide'
-      />
-      </ResponsiveGrid>
-    </Box>
-  </Box>
-</Grommet>
 <Grommet theme={hpe}>
   <Box align='center' pad='medium' background="#EFEFEF">
     <Heading
