@@ -1,9 +1,8 @@
 
 ## Authentication and Authorization
 
-API endpoints use authorization headers and/or cookies in their requests to utilize security. When still ‘empty’, each endpoint is marked with an ‘unlocked lock’ symbol on the right side   ![alt text](https://pages.github.hpe.com/TS-RnD/images/lock-empty.png "Lock symbol - empty"). After filling _authentication/authorization_ for a certain endpoint it changes to a ‘locked lock’  ![alt text](https://pages.github.hpe.com/TS-RnD/images/lock-filled.png "Lock symbol - filled").
-    
-Filling authentication/authorization can be done for an individual endpoint (‘lock’ symbol) or all at once by clicking the ‘authorize’ button on the top-right of the   [OpenApi documentation](https://pages.github.hpe.com/TS-RnD/ide-uaa-api.html)  ![alt text](https://pages.github.hpe.com/TS-RnD/images/authorize-button.png "Authorize button"). The window with all possible _authentications/authorizations_ pops up..
+API endpoints use authorization headers and/or cookies in their requests to utilize security. 
+Filling authentication/authorization can be done for an individual endpoint under the security tab on the Open API specification.
     
 
 ## Bearer Authentication
