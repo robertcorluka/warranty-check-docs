@@ -5,7 +5,7 @@ info:
   description: |
     <font color="red"> **Note**:</font> This API is available only on external Kong
 servers:
-  - url: 'https://api-gw.support.hpe.com/apigwext'
+  - url: 'https://api-itg-gw.support.hpe.com/apigwext'
 paths:
   /support/entitlement/v1/warrantyCheck/{sn}:
     get:
