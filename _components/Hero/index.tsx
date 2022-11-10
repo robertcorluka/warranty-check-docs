@@ -8,7 +8,7 @@ import {
   ResponsiveContext,
 } from "grommet";
 import { hpe } from "grommet-theme-hpe";
-import hpeElement from "../../images/HPE_ELEMENT_20210217008_16x9_1600_0_72_RGB.jpg";
+import hpeElement from "../../images/HPE_ELEMENT_20200507021.jpg";
 
 export default function Hero() {
   return (
