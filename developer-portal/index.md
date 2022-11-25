@@ -4,13 +4,13 @@ title: Overview
 
 # Overview
 
-HPE provides services for an 'entitlement', which is a contract, warranty, or care pack for a group of products in a customer's environment. Entitlements are critical and are needed across all business units to ensure that HPE delivers what the customer has purchased from HPE in a consistent way.
+The Warranty Check API can use your device’s serial number and optionally product number to retrieve the warranty and contract start date and end date.
 
-The heart of the entitlement system is the Entitlement Engine, which provides clients with secure, scalable and performant access to consistent and accurate entitlement information.
-
-The HPE Support Center Warranty Check API is used to retrieve the status of your warranty, including service type and level, coverage dates, deliverables, and other details associated with your warranty. (Entitlement information for the product instance Serial Number / Product Number acts as an interface to display entitlement information.)  
-
-**Note:** The Warranty Check API does not retrieve support agreement information or subscription contracts.
+**Note:** 
+-	The Warranty Check API will not provide support agreement information or Contract ID.
+-	Warranties and contracts expired for over 12 months will not be listed.
+-	The subscription type of contracts will not be listed.
+-	Currently only single product look up is supported with the API.
 
 ### Warranty Check API
 GET: https://api-gw.support.hpe.com/apigwext/support/entitlement/v1/warrantyCheck/sn{/pn}
