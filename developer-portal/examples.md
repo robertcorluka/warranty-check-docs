@@ -1,28 +1,6 @@
 
 ## Accessing Warranty Check API
 
-### Calling Identity Service
-
-Since all exposed API endpoints are secured, the client must first obtain a JSON security web token by invoking the Identity Service REST:
-
-       curl -L -X POST '[https://api-gw.support.hpe.com/apigwext/services/oauth/token](https://api-gw.support.hpe.com/apigwext/services/oauth/token)' \
-        -H 'Authorization: Basic **base64_encoded_credentials**' \
-        -F 'grant_type="client_credentials"'
-        
-The response from the Identity Service REST holds a JWT to use with the Entitlement API Warranty Check call:
-
-    {
-    "access_token": "**access_token_value**",
-    "token_type": "**access_token_type**",
-    "expires_in": expiration_value,
-    "scope": "read write",
-    "cc_id": "client_id",
-    "ga_id": "group_account_id",
-    "sc_id": "security_context_id",
-    "domain": "domain_name",
-    "zip_authorities": "some_zip_authorities",
-    "jti": "jti" 
-    }
 ### Calling Warranty Check API
 ##### Call example
 
@@ -66,32 +44,3 @@ The response from the Identity Service REST holds a JWT to use with the Entitlem
     ]  
     }
 
-#### Response headers with rate limiting information
-
-Rate limiting can be configured on different levels: year, month, day, hour, minute, second.
-
-At least one limit is configured. Multiple limits can be configured.
-
-##### Custom headers
-|KEY|DESCRIPTION|EXAMPLE VALUE|
-|--- |--- |--- |
-|X-RateLimit-Limit-Year|Custom header holding rate limit information, if it is configured.|10000|
-|X-RateLimit-Remaining-Year|Custom header holding number of available requests, if it is configured.|5471|
-|X-RateLimit-Limit-Month|Custom header holding rate limit information, if it is configured.|600|
-|X-RateLimit-Remaining-Month|Custom header holding number of available requests, if it is configured.|501|
-|X-RateLimit-Limit-Day|Custom header holding rate limit information, if it is configured.|200|
-|X-RateLimit-Remaining-Day|Custom header holding number of available requests, if it is configured.|155|
-|X-RateLimit-Limit-Hour|Custom header holding rate limit information, if it is configured.|100|
-|X-RateLimit-Remaining-Hour|Custom header holding number of available requests, if it is configured.|98|
-|X-RateLimit-Limit-Minute|Custom header holding rate limit information, if it is configured.|10|
-|X-RateLimit-Remaining-Minute|Custom header holding number of available requests, if it is configured.|7|
-|X-RateLimit-Limit-Second|Custom header holding rate limit information, if it is configured.|3|
-|X-RateLimit-Remaining-Second|Custom header holding number of available requests, if it is configured.|1|
-
-###### Following headers are based on the Internet-Draft  RateLimit Header Fields for HTTP
-
-|KEY|DESCRIPTION|EXAMPLE VALUE|
-|--- |--- |--- |
-|RateLimit-Limit|Allowed limit.|100|
-|RateLimit-Remaining|Number of available requests.|98|
-|RateLimit-Reset|The time remaining (in seconds) until the quota is reset.|3422|

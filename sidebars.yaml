@@ -1,9 +1,9 @@
 training:
   - page: developer-portal/index.md
+  - label: Authentication
+    page: developer-portal/authentication.md
   - label: Examples
     page: developer-portal/examples.md
-  - label: How to get token
-    page: developer-portal/authentication.md
   - group: Open API specification
     expanded: false
     pages:

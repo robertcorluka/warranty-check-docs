@@ -2,16 +2,14 @@ openapi: 3.0.1
 info:
   title: Warranty Check Definition
   version: 'RC-4549-2022.08.31_11.29.40'
-  description: |
-    <font color="red"> **Note**:</font> This API is available only on external Kong
 servers:
   - url: 'https://api-gw.support.hpe.com/apigwext'
 paths:
   /support/entitlement/v1/warrantyCheck/{sn}:
     get:
       tags:
-        - Warranty check external API
-      summary: Returns enriched CUE based on SN
+        - Warranty check API
+      summary: Returns enriched support based on SN
       operationId: warrantyCheckBySn
       security:
         - bearerAuth: []
@@ -67,9 +65,9 @@ paths:
   /support/entitlement/v1/warrantyCheck/{sn}/{pn}:
     get:
       tags:
-        - Warranty check external API
+        - Warranty check API
       operationId: warrantyCheckBySnPn
-      summary: Returns the enriched CUE based on SN,PN,
+      summary: Returns the enriched support based on SN,PN,
       security:
         - bearerAuth: []
       parameters:

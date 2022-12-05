@@ -114,11 +114,25 @@ If the token is expired it results into a 401 Unauthorized error.
 
 ```
 
-# Special cases handling
+#### Calling Identity Service
 
-#### G-blocked contracts handling
+Since all exposed API endpoints are secured, the client must first obtain a JSON security web token by invoking the Identity Service REST:
 
-**Global Trade Services (GTS)**  are utilizingusing the S4 Bridge Service to implement a blacklisting deny list policy for services that depend on Eentitlement information.
-Their strategy is to include a ‘G flag’ ‘G’ in the S4 Bridge response (“Contract Status” field) for specific APIs, and each downstream application has to consume use this flag.
-If a contract has a ‘G flag’ in the Contract Status, it means it is aActive but the delivery against it is Bblocked. The In this case, the Entitlement Engine will suppress the G- Block contracts and
-willand will not return any the Highest Support Level. 
+       curl -L -X POST '[https://api-gw.support.hpe.com/apigwext/services/oauth/token](https://api-gw.support.hpe.com/apigwext/services/oauth/token)' \
+        -H 'Authorization: Basic **base64_encoded_credentials**' \
+        -F 'grant_type="client_credentials"'
+        
+The response from the Identity Service REST holds a JWT to use with the Entitlement API Warranty Check call:
+
+    {
+    "access_token": "**access_token_value**",
+    "token_type": "**access_token_type**",
+    "expires_in": expiration_value,
+    "scope": "read write",
+    "cc_id": "client_id",
+    "ga_id": "group_account_id",
+    "sc_id": "security_context_id",
+    "domain": "domain_name",
+    "zip_authorities": "some_zip_authorities",
+    "jti": "jti" 
+    }

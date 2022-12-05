@@ -4,7 +4,7 @@ title: Overview
 
 # Overview
 
-The Warranty Check API can use your device’s serial number and optionally product number to retrieve the warranty and contract start date and end date.
+The Warranty Check API can use your product’s serial number and optionally product number to check if it is under support along with the start and end dates.
 
 
 ### Warranty Check API
@@ -29,7 +29,7 @@ GET: https://api-gw.support.hpe.com/apigwext/support/entitlement/v1/warrantyChec
 |500||Server is aware that it has encountered an error or is incapable of fulfilling the request.|Inform support|
 
 **Note:** 
--	The Warranty Check API will not provide support agreement information or Contract ID.
 -	Warranties and contracts expired for over 12 months will not be listed.
+-	The Warranty Check API will not provide support agreement information or Contract ID.
 -	The subscription type of contracts will not be listed.
 -	Currently only single product look up is supported with the API.
