@@ -26,18 +26,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EntitlementBySnPnHSL'
-        '400':
-          description: Bad request
+        '401':
+          description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/400'
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/403'
+                $ref: '#/components/schemas/401'
         '404':
           description: Not Found
           content:
@@ -56,12 +50,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/500'
-        '503':
-          description: Service Unavailable
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/503'
   /support/entitlement/v1/warrantyCheck/{sn}/{pn}:
     get:
       tags:
@@ -88,18 +76,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EntitlementBySnPnHSL'
-        '400':
-          description: Bad request
+        '401':
+          description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/400'
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/403'
+                $ref: '#/components/schemas/401'
         '404':
           description: Not Found
           content:
@@ -118,12 +100,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/500'
-        '503':
-          description: Service Unavailable
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/503'
 components:
   securitySchemes:
     bearerAuth:
@@ -131,31 +107,6 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
-    '400':
-      type: object
-      properties:
-        type:
-          type: string
-          example: about:blank
-        title:
-          type: string
-          example: Bad Request
-        status:
-          type: integer
-          format: int32
-          example: '400'
-        detail:
-          type: string
-          example: Missing security headers. Either 'Authorization' or a combination of 'X-Communication-Id' and 'X-Auth-Token' are required
-        instance:
-          type: string
-          example: /entitlement-api-service/entitlements/entitlement/Test
-        message:
-          type: string
-          example: Missing security headers. Either 'Authorization' or a combination of 'X-Communication-Id' and 'X-Auth-Token' are required
-        tracking-id:
-          type: string
-          example: 8c74ca41-0a97-4bee-a723-3f3fc1fdbfa9
     '401':
       type: object
       properties:
@@ -175,15 +126,6 @@ components:
         instance:
           type: string
           example: /entitlement-api-service/entitlements/user/8af1a8aa4001624d955126a63d2fe3a0
-    '403':
-      type: object
-      properties:
-        message:
-          type: string
-          example: Access denied
-        trackingId:
-          type: string
-          example: a4a701ef-f22b-4c97-bb84-497900563676
     '404':
       type: object
       properties:
@@ -220,58 +162,6 @@ components:
         trackingId:
           type: string
           example: 59a4731f-c6ef-4bf6-a9fd-f45c13a6ffb5
-    '503':
-      type: object
-      properties:
-        message:
-          type: string
-          example: An I/O error has occurred on make http request.
-        trackingId:
-          type: string
-          example: 80dc471d-43d2-436a-864e-d6477781e4d2
-    400-userID:
-      type: object
-      properties:
-        type:
-          type: string
-          example: about:blank
-        title:
-          type: string
-          example: Bad Request
-        status:
-          type: integer
-          format: int32
-          example: '400'
-        detail:
-          type: string
-          example: Missing security headers. Either 'Authorization' or a combination of 'X-Communication-Id' and 'X-Auth-Token' are required
-        instance:
-          type: string
-          example: /entitlement-api-service/entitlements/user/8af1a8aa4001624d955126a63d2fe3a0
-        message:
-          type: string
-          example: Missing security headers. Either 'Authorization' or a combination of 'X-Communication-Id' and 'X-Auth-Token' are required
-        tracking-id:
-          type: string
-          example: c509fa76-1eb3-48c9-90a9-ffef02de1aa0
-    404-userID:
-      type: object
-      properties:
-        message:
-          type: string
-          example: No more entitlements found
-        trackingId:
-          type: string
-          example: 3079793b-5705-4795-a1d9-20a8197bc579
-    500-userID:
-      type: object
-      properties:
-        message:
-          type: string
-          example: 'Failed to convert value of type ''java.lang.String'' to required type ''int''; nested exception is java.lang.NumberFormatException: For input string: 100000000000000'
-        trackingId:
-          type: string
-          example: 05f543bb-395b-4f54-a718-f264f929d7e2
     AppliesTo:
       type: object
       properties:
