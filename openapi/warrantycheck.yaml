@@ -9,7 +9,7 @@ paths:
     get:
       tags:
         - Warranty check API
-      summary: Returns enriched support based on SN
+      summary: Returns support based on SN
       operationId: warrantyCheckBySn
       security:
         - bearerAuth: []
@@ -67,7 +67,7 @@ paths:
       tags:
         - Warranty check API
       operationId: warrantyCheckBySnPn
-      summary: Returns the enriched support based on SN,PN,
+      summary: Returns support based on SN,PN
       security:
         - bearerAuth: []
       parameters:
