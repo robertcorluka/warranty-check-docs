@@ -1,5 +1,5 @@
 
-## Authentication and Authorization
+# Authentication and Authorization
 
 API endpoints use authorization headers and/or cookies in their requests to utilize security. 
 Filling authentication/authorization can be done for an individual endpoint under the security tab on the Open API specification.

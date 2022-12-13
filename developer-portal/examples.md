@@ -1,5 +1,4 @@
-
-## Accessing Warranty Check API
+# Accessing Warranty Check API
 
 ### Calling Warranty Check API
 ##### Call example
