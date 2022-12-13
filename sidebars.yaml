@@ -1,8 +1,8 @@
 training:
   - page: developer-portal/index.md
-  - label: Authentication
+  - label: Authentication and Authorization
     page: developer-portal/authentication.md
-  - label: Examples
+  - label: API Call example
     page: developer-portal/examples.md
   - group: Open API specification
     expanded: false

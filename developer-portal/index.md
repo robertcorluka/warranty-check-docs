@@ -23,13 +23,13 @@ GET: https://api-gw.support.hpe.com/apigwext/support/entitlement/v1/warrantyChec
 |HTTP STATUS CODE|DESCRIPTION|REASON|ACTION|
 |--- |--- |--- |--- |
 |200|API receives response|Successful response.|-|
-|401|Unauthorized|Client is unauthenticated. Client must authenticate itself first to get the requested response. See "Authentication" tab.|-|
-|404|Not Found|The server cannot find the requested resource. This means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist, for example the requested SN/PN combination is not available. Example: {"id": "210", "idClass": "DatanotFound", "message": "Product number was not found"}|Inform support if there’s a concern|
+|401|Unauthorized|Client is unauthenticated. Client must authenticate itself first to get the requested response. See "Authentication and Authorization" tab.|-|
+|404|Not Found|The server cannot find the requested resource. This means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist, for example the requested SN/PN combination is not available. Example: {"id": "210", "idClass": "DatanotFound", "message": "Product number was not found"}|Contact support if there’s a concern|
 |429|Too Many Requests|Client has sent too many requests in a given amount of time. Requests are blocked by rate limiting policy.|Retry operation after some delay|
-|500||Server is aware that it has encountered an error or is incapable of fulfilling the request.|Inform support|
+|500||Server is aware that it has encountered an error or is incapable of fulfilling the request.|Contact support|
 
 **Note:** 
--	Warranties and contracts expired for over 12 months will not be listed.
--	The Warranty Check API will not provide support agreement information or Contract ID.
--	The subscription type of contracts will not be listed.
+-	Warranties and contracts expired for over 12 months are not listed.
+-	The Warranty Check API does not provide support agreement information or Contract IDs.
+-	The subscription type of contracts is not listed.
 -	Currently only single product look up is supported with the API.

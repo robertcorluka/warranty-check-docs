@@ -17,9 +17,7 @@ Below you can find out how to get your token from the Identity Service (OpenAPI 
 
 **Request Method**
 
-ENV_URL is https://api-gw.support.hpe.com/apigwext/services/oauth/token
-
-**POST:**  { ENV_URL }/services/oauth/token
+**POST:**  https://api-gw.support.hpe.com/apigwext/services/oauth/token
 
 **Header Parameter**
 

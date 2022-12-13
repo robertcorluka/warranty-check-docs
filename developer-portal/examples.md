@@ -3,17 +3,18 @@
 
 ### Calling Warranty Check API
 ##### Call example
+For the purposes of this example we will use example serial number SNNEX4MPL3 and product number Q9PNEX.
 
-    curl -L -X GET '**{ENV}**/support/entitlement/v1/warrantyCheck/**serial_number**/**product_number**?cc=**US**&hsl=true&useCache=false&includeExpired=true' \ -H 'Authorization: **access_token_type** **access_token_value**'
+    curl -L -X GET 'https://api-gw.support.hpe.com/apigwext/support/entitlement/v1/warrantyCheck/SNNEX4MPL3/Q9PNEX?cc=**US**&hsl=true&useCache=false&includeExpired=true' \ -H 'Authorization: **access_token_type** **access_token_value**'
     
 ##### Response example
 
     "entitlementBySnPnInstanceHSLList": [  
     {  
     "log_tracking_id": "Yuo5Kn7x5cS1ygGQK-d-EAAAADU", // ID used by support in case of error  
-    "serialNumber": "**serial_number**",  
-    "productNumber": "**product_number**",  
-    "countryCode": "**US**",  
+    "serialNumber": "SNNEX4MPL3",  
+    "productNumber": "Q9PNEX",  
+    "countryCode": "US",  
     **_// all support levels_**  
     "supportLevels": [  
     **_// active supportlevel_**  
