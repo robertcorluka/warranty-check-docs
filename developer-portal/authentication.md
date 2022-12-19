@@ -1,41 +1,44 @@
 
-# Authentication and Authorization
+# Authentication
 
 API endpoints use authorization headers and/or cookies in their requests to utilize security. 
 Filling authentication/authorization can be done for an individual endpoint under the security tab on the Open API specification.
     
 
-## Bearer Authentication
+## Bearer authentication
 
-#### How to get token
+#### How to get a token
 
 Below you can find out how to get your token from the Identity Service (OpenAPI specification or using cURL/HTTP).
 
-## Identity Service Token OpenAPI Endpoints
+## Identity service token OpenAPI endpoints
 
-#### Token Request
+#### Token request
 
-**Request Method**
+**Request method**
 
 **POST:**  https://api-gw.support.hpe.com/apigwext/services/oauth/token
 
-**Header Parameter**
+**Header parameter**
 
 |Parameter|Value  |Description |
 |--|--|--|
-| Authorization |Basic [Base64 encoded clientid:secret]  | The authorization value the Base64 encoded string of the client id and the secret in the format, clientid:secret. 
+| Authorization |Basic [Base64 encoded clientid:secret]  | The authorization value includes the Base64 encoded string of the client id and the secret in the format, clientid:secret. 
 Example value: “Basic XXXXXXXXXXXXXXXXXXx” |
 
-**Body Parameter**  These values can be passed as raw body, form body or as URL parameters.
+**Body parameter**  
+These values can be passed as raw body, form body or as URL parameters.
 
 |Parameter|Value  |Description |
 |--|--|--|
-| grant_type|client_credentials| Required - with the value ‘client_credentials’ it specifies to authenticate via client credentials.|
-| client_id|the client id| Optional – if provided, it must match the client id in the authorization header.|
+| grant_type|client_credentials| Required - With the value ‘client_credentials’, this parameter indicates to authenticate via client credentials.|
+| client_id|the client id| Optional – If provided, this parameter must match the client id in the authorization header.|
 
-When testing with Postman and passing the values as body, you have to specify the Header Content-Type: application/x-www-form-urlencoded.
+When testing with Postman and passing the values as body, you have to specify the Header Content-Type: 
 
-#### HTTP Example
+application/x-www-form-urlencoded.
+
+#### HTTP example
 
 ```
 POST /services/oauth/token HTTP/1.1
@@ -46,12 +49,12 @@ grant_type=client_credentials&client_id=clientid
 
 ```
 
-The grant type  **client_credentials**  allows client applications to request an access token with the client specific credentials. The returned access token is used to make service calls, which requires authorization without passingthat does not pass the client’s credentials to this service.
-The token is passed via the Authorization header and contains all relevant information about the client, especially the permissions. This information is used by the service to make necessary authorization checks.
-To ensure the access token cannot be manipulated, it is signed by a certificate.
-The token can be used until it expires. Currently it expires after 1 one hour, and then a new token needs to be requested.
+The grant type **client_credentials** allows client applications to request an access token with client specific credentials. 
+The returned access token is used to make service calls. This requires authorization without passing the client’s credentials to this service. The token is passed via the authorization header and contains all relevant information about the client, especially permissions. 
+This information is used by the service to make necessary authorization checks. To ensure the access token cannot be manipulated it is signed by a certificate. The token can be used until it expires. Currently it expires after one hour, and then a new token must be requested.
 
-#### cURL Example
+
+#### cURL example
 
 ```
 curl -X POST -s -u ${CLIENT_ID}:${CLIENT_SECRET} https://api-gw.support.hpe.com/apigwext/services/oauth/token \
@@ -79,11 +82,11 @@ curl -X POST -s -u ${CLIENT_ID}:${CLIENT_SECRET} https://api-gw.support.hpe.com/
 
 ```
 
-# Using Access Token
+# Using access tokens
 
 The value of the accesstoken attribute from the previous response contains the access token which needs to be passed as  **Bearer**  token via the Authorization header to the service request call.
 
-#### HTTP Example
+#### HTTP example
 
 ```
 GET /rest/service/some/resource/ HTTP/1.1
@@ -93,7 +96,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsI....XKdemFdtuGK72X8VNqAdh-u
 
 ```
 
-#### cURL Example
+#### cURL example
 
 ```
 curl -R GET 'https:// ${SERVICE_URL} \
@@ -102,7 +105,7 @@ curl -R GET 'https:// ${SERVICE_URL} \
 
 ```
 
-If the token is expired it results into a 401 Unauthorized error.
+If the token is expired it results in a 401 Unauthorized error.
 
 ```
 {
@@ -112,7 +115,7 @@ If the token is expired it results into a 401 Unauthorized error.
 
 ```
 
-#### Calling Identity Service
+#### Calling identity service
 
 Since all exposed API endpoints are secured, the client must first obtain a JSON security web token by invoking the Identity Service REST:
 

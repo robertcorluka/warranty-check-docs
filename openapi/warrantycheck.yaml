@@ -33,7 +33,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/401'
         '404':
-          description: Not Found
+          description: Not found
           content:
             application/json:
               schema:
@@ -55,7 +55,7 @@ paths:
       tags:
         - Warranty check API
       operationId: warrantyCheckBySnPn
-      summary: Returns support based on SN,PN
+      summary: Returns support based on SN, PN
       security:
         - bearerAuth: []
       parameters:
@@ -83,7 +83,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/401'
         '404':
-          description: Not Found
+          description: Not found
           content:
             application/json:
               schema:

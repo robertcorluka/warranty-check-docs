@@ -6,4 +6,4 @@ Interested in our Warranty Check API? Apply to be a pilot customer [HERE](https:
 
 ### Contact support
 
-If you need assistance you can contact support [HERE](https://support.hpe.com/connect/s/sitesupport). 
+For assistance contact support [HERE](https://support.hpe.com/connect/s/sitesupport). 
