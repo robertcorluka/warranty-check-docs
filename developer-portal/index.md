@@ -18,7 +18,7 @@ The Warranty Check API can use your product’s serial number and optionally pro
 |sn|Serial number for the device being evaluated.||Mandatory|
 |pn|Product number for the device being evaluated.||Optional|
 
-### Return Codes
+### Return codes
 
 |HTTP STATUS CODE|DESCRIPTION|REASON|ACTION|
 |--- |--- |--- |--- |
