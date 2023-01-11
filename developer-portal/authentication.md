@@ -31,7 +31,7 @@ These values can be passed as raw body, form body or as URL parameters.
 
 |Parameter|Value  |Description |
 |--|--|--|
-| grant_type|client_credentials| Required - With the value ‘client_credentials’, this parameter indicates to authenticate via client credentials.|
+| grant_type|client_credentials| Required - With the value ‘client_credentials’, this parameter indicates that you must authenticate via client credentials.|
 | client_id|the client id| Optional – If provided, this parameter must match the client id in the authorization header.|
 
 When testing with Postman and passing the values as body, you have to specify the Header Content-Type: 
